@@ -17,6 +17,7 @@ background: linear-gradient(to bottom, #2a0050, #0a0015, #000000);
 }
 
 /* container das estrelas */
+
 #stars{
 position:fixed;
 top:0;
@@ -26,18 +27,17 @@ height:100%;
 z-index:0;
 }
 
-/* estrela individual */
+/* estrela */
+
 .star{
 position:absolute;
-width:2px;
-height:2px;
 background:white;
 border-radius:50%;
-opacity:0.8;
 animation: moveStar linear infinite;
 }
 
 /* movimento */
+
 @keyframes moveStar{
 from{
 transform:translateY(0);
@@ -46,6 +46,8 @@ to{
 transform:translateY(-120vh);
 }
 }
+
+/* card */
 
 .card{
 position:relative;
@@ -98,35 +100,38 @@ color:black;
 
 <script>
 
-/* cria estrelas aleatórias */
-<script>
-
 const starsContainer = document.getElementById("stars");
 
-for(let i=0;i<600;i++){
+/* quantidade de estrelas */
+
+for(let i=0;i<1000;i++){
 
 let star = document.createElement("div");
 star.className = "star";
 
+/* posição aleatória */
+
 star.style.left = Math.random()*100+"vw";
 star.style.top = Math.random()*100+"vh";
 
-/* tamanhos diferentes */
-let size = Math.random()*3;
-star.style.width = size + "px";
-star.style.height = size + "px";
+/* tamanho aleatório */
 
-/* velocidade diferente */
-star.style.animationDuration = (40 + Math.random()*60)+"s";
+let size = Math.random()*2 + 1;
+star.style.width = size+"px";
+star.style.height = size+"px";
 
-/* brilho diferente */
-star.style.opacity = 0.3 + Math.random();
+/* velocidade aleatória */
+
+star.style.animationDuration = (60 + Math.random()*60)+"s";
+
+/* brilho */
+
+star.style.opacity = 0.3 + Math.random()*0.7;
 
 starsContainer.appendChild(star);
 
 }
 
-</script>
 </script>
 
 </body>
